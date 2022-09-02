@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<p class="mx-auto" style="width: 500px;">Can't read Chinese? You can translate here  <span> 😘 </span></p>
+
+<div class="container">
+    <form action="{% url 'translator_view' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6 mt-3 left">
+                <textarea class="form-control" rows="4" name="my_textarea">{{original_text}}</textarea>
+            </div>
+            <div class="col-sm-6 mt-3 left">
+                <textarea class="form-control" rows="4">{{output_text}}</textarea>
+                <input class="btn btn-primary ml-3 mt-3" type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
